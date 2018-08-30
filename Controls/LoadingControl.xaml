@@ -1,0 +1,23 @@
+﻿<core:NyaControl
+    x:Class="Nyantilities.Controls.LoadingControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:core="using:Nyantilities.Core"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tk="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d"
+    d:DesignHeight="40"
+    d:DesignWidth="200"
+    x:Name="Root">
+
+    <tk:Loading x:Name="LoadingCtrl" IsLoading="{Binding IsLoading}">
+        <StackPanel Orientation="Horizontal" MinWidth="250" Padding="20,10" Background="#77000000">
+            <Grid Margin="0,0,8,0">
+                <Image Source="../../Assets/ToolkitLogo.png" Height="50"/>
+                <ProgressRing IsActive="True" Foreground="White" />
+            </Grid>
+            <TextBlock x:Name="LoadingContent" Text="{Binding LoadingText}" Foreground="White" VerticalAlignment="Center" TextAlignment="Justify"/>
+        </StackPanel>
+    </tk:Loading>
+</core:NyaControl>
