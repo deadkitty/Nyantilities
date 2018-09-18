@@ -78,10 +78,9 @@ namespace Nyantilities.Controls
 
             KeyboardAccelerator accelerator = new KeyboardAccelerator()
             {
-                  Key = GetKey(keyParts.Last())
+                  Key       = GetKey(keyParts.Last())
                 , IsEnabled = IsEnabled
                 , Modifiers = modifier
-                , ScopeOwner = this
             };
 
             accelerator.Invoked += KeyboardAccelerator_Invoked;
