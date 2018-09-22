@@ -116,6 +116,7 @@
     </Compile>
     <Compile Include="Controls\NyaButton.cs" />
     <Compile Include="Converter\NullConverter.cs" />
+    <Compile Include="Converter\TextToVisibleConverter.cs" />
     <Compile Include="Converter\VisibilityConverter.cs" />
     <Compile Include="Core\NyaApp.cs" />
     <Compile Include="Core\NyaControl.cs" />
