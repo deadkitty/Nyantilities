@@ -50,12 +50,18 @@ namespace Nyantilities.Core
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+
+            Dispatcher.AcceleratorKeyActivated += Dispatcher_AcceleratorKeyActivated;
+
             navigationHelper.OnNavigatedTo(e);
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             base.OnNavigatedFrom(e);
+
+            Dispatcher.AcceleratorKeyActivated -= Dispatcher_AcceleratorKeyActivated;
+
             navigationHelper.OnNavigatedFrom(e);
         }
 
@@ -101,6 +107,13 @@ namespace Nyantilities.Core
         #endregion
 
         #region Util
+
+        //muss rein, sonst spinnt die app komplett rum weil wenn ich alt drücke die app, warum auch immer, abstürzt ... >.>
+        //sachen wie alt+num3 für ♥ kann ich aber nachwievor nicht machen weil die app dann troztdem abstürzt -.- 
+        protected virtual void Dispatcher_AcceleratorKeyActivated(Windows.UI.Core.CoreDispatcher sender, Windows.UI.Core.AcceleratorKeyEventArgs args)
+        {
+            args.Handled = args.VirtualKey == VirtualKey.Menu;
+        }
 
         public T LoadValue<T>(LoadStateEventArgs args, String key)
         {
